@@ -1,0 +1,30 @@
+{
+    "name": "demo",
+    "desc": "this is a demo flow",
+    "root": "root",
+    "flow": [
+        {
+            "nodeName": "root",
+            "desc": "this is the root node",
+            "opName": "default_root",
+            "next": [
+                "subflow"
+            ]
+        },
+        {
+            "nodeName": "subflow",
+            "desc": "this is the subflow",
+            "isSubflow": true,
+            "subFlowConf": "subflow.json",
+            "next": [
+                "end"
+            ]
+        },
+        {
+            "nodeName": "end",
+            "desc": "this is the end node",
+            "opName": "default_root",
+            "next": []
+        }
+    ]
+}
