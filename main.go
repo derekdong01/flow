@@ -14,7 +14,7 @@ func main() {
 
 	builder := flow.NewFlowBuilder()
 	// inst, err := builder.BuildFlow(ctx, "subflow.json")
-	inst, err := builder.BuildFlow(ctx, "demo.json")
+	inst, err := builder.BuildFlow(ctx, "demo_complex.json")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -22,5 +22,5 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	// _ = inst.Graphviz("./demo.svg")
+	_ = inst.Graphviz("./demo_complex.svg")
 }

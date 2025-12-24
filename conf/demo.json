@@ -14,7 +14,7 @@
         {
             "nodeName": "subflow",
             "desc": "this is the subflow",
-            "isSubflow": true,
+            "isSubFlow": true,
             "subFlowConf": "subflow.json",
             "next": [
                 "end"

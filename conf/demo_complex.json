@@ -1,0 +1,87 @@
+{
+  "name": "demo_complex",
+  "desc": "a more complex demo flow with branches and subflows",
+  "root": "root",
+  "flow": [
+    {
+      "nodeName": "root",
+      "desc": "entry node",
+      "opName": "default_root",
+      "next": ["branchA", "branchB", "subflow_main"]
+    },
+
+    {
+      "nodeName": "branchA",
+      "desc": "branch A start",
+      "opName": "default_root",
+      "next": ["A1", "join1"]
+    },
+    {
+      "nodeName": "A1",
+      "desc": "branch A task",
+      "opName": "default_root",
+      "next": ["join1"]
+    },
+
+    {
+      "nodeName": "branchB",
+      "desc": "branch B start",
+      "opName": "default_root",
+      "next": ["B1", "join1", "subflow_branch"]
+    },
+    {
+      "nodeName": "B1",
+      "desc": "branch B task",
+      "opName": "default_root",
+      "next": ["subflow_branch"]
+    },
+
+    {
+      "nodeName": "subflow_main",
+      "desc": "main subflow",
+      "opName": "default_root",
+      "isSubFlow": true,
+      "subFlowConf": "subflow.json",
+      "next": ["join1"]
+    },
+    {
+      "nodeName": "subflow_branch",
+      "desc": "branch subflow",
+      "opName": "default_root",
+      "isSubFlow": true,
+      "subFlowConf": "subflow.json",
+      "next": ["join1"]
+    },
+
+    {
+      "nodeName": "join1",
+      "desc": "join multiple branches",
+      "opName": "default_root",
+      "next": ["post1", "post2"]
+    },
+    {
+      "nodeName": "post1",
+      "desc": "post-processing 1",
+      "opName": "default_root",
+      "next": ["merge"]
+    },
+    {
+      "nodeName": "post2",
+      "desc": "post-processing 2",
+      "opName": "default_root",
+      "next": ["merge"]
+    },
+    {
+      "nodeName": "merge",
+      "desc": "merge to single end",
+      "opName": "default_root",
+      "next": ["end"]
+    },
+    {
+      "nodeName": "end",
+      "desc": "unique end node",
+      "opName": "default_root",
+      "next": []
+    }
+  ]
+}
